@@ -1,0 +1,102 @@
+<div class="section section-breadcrumbs">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Doctor Details</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section" >
+    <div class="container">
+        <div class="row service-wrapper-row">
+            <div class="col-sm-4">
+                <div class="service-image">
+                    <img src="../../assets/Images/doctorlog.jpg" alt="Doctor Image">
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <h3>Dr.{{card.FirstName}}
+                    {{card.LastName}}
+                </h3>
+
+                <p>
+                    {{card.Degree}}
+                </p>
+                <p>
+                    Veterinary Physician
+                </p>
+                <p>
+                    {{card.Experience}} Years Experience Overall
+                </p>
+                <p>
+                    Medical Registration Verified
+                </p>
+
+                <button class="btn" (click)="bookAppointment()">Book Appointment</button>
+
+            </div>
+        </div>
+        <div class="row">
+            <!-- Product Image & Available Colors -->
+            
+            <!-- End Product Image & Available Colors -->
+            <!-- Product Summary & Options -->
+            
+            <!-- End Product Summary & Options -->
+            
+            <!-- Full Description & Specification -->
+            <div class="col-sm-12">
+                <div class="tabbable">
+                    <!-- Tabs -->
+                    <ul class="nav nav-tabs product-details-nav">
+                        <li class="active"><a href="#tab1" data-toggle="tab">Info</a></li>
+                        <li><a href="#tab2" data-toggle="tab">Stories</a></li>
+                    </ul>
+                    <!-- Tab Content (Full Description) -->
+                    <div class="tab-content product-detail-info">
+                        <div class="tab-pane active" id="tab1">
+                            <h4>{{card.LandMark}},
+                                {{card.City}}
+                            </h4>
+                            <p>
+                                {{card.Bio}}
+                            </p>
+                            <h4>Availability Details</h4>
+                            <ul>
+                                <li>9:30 - 1:00 PM</li>
+                                <li>2:30 - 4:00 PM</li>
+                                <li>5:30 - 8:30 PM</li>
+                                
+                            </ul>
+                            <h4>Address Details</h4>
+                            <p>
+                                {{card.Line1}} <br>{{card.Line2}} <br>
+                                {{card.LandMark}} <br>{{card.City}} <br>
+                                {{card.State}} <br>{{card.PinCode}}
+                            </p>
+                            <h4>Personal Details</h4>
+                            <p>
+                               Consultation Fees : &#8377; {{card.Fees}}<br>
+                               Email Id : {{card.EmailId}}<br>
+                               Phone : {{card.Phone}}
+                                
+                            </p>
+                        </div>
+                        <!-- Tab Content (Specification) -->
+                        <div class="tab-pane" id="tab2">
+                            <p>
+                                It was for my dog 'Khandu' . It was overall very good experience. My dog was diagnosed with liver infection by my regular Vet at my town. As Dr.{{card.FirstName}} {{card.LastName}} is only vet in pune who have Ultrasound facility, my regular Vet suggested his name.
+                                Extremely warm experience!! The staff is amazing, Doctor is soft! Precisely how a doctor should be!
+                                Very generous and humble, we loved the experience as we had went for the first time. A very nicely explained treatment, staff was good, ambience was good.
+                                The doctor and the entire staff was very warm towards the pet. The doctor nicely explained everything related to puppy care, health and vaccinations while handling the puppy with great warmth and care.
+                          </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Full Description & Specification -->
+        </div>
+    </div>
+</div>

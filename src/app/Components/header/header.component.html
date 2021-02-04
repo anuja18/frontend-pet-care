@@ -1,0 +1,31 @@
+<div class="mainmenu-wrapper">
+    <div class="container">
+        <div class="menuextras">
+            <div class="extras">
+                <ul>                    
+                    <li><a class="btn" *ngIf="!loggedIn " routerLink="/login">Login</a></li>
+                </ul>
+                <ul>                    
+                    <li><a class="btn" *ngIf="loggedIn"  (click)="logOut()"  >Logout</a></li>
+                </ul>
+            </div>
+        </div>
+        <nav id="mainmenu" class="mainmenu">
+            <ul>
+                <li class="logo-wrapper"><a href="index.html"><img src="../../../assets/Images/VeterinarySystemsLogo.png" alt="Multipurpose Twitter Bootstrap Template"></a></li>
+                <li [ngClass]="isClicked? 'active':''" (click)="clickEvent()">
+                    <a  routerLink="/home">Home</a>
+                </li>
+                <li>
+                    <a routerLink="/about-us">About Us</a>
+                </li>
+                <li class="has-submenu">
+                    <a routerLink="/register" [queryParams]="{role: 'Doctor'}">Are You Doctor?</a>
+                                   </li>
+                <li>
+                    <a routerLink="/login">LogIn/SingUp</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>

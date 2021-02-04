@@ -1,0 +1,67 @@
+<div class="section section-breadcrumbs">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Login</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-5">
+                <div class="basic-login">
+                    <form role="form" #loginForm="ngForm" role="form" (ngSubmit)="loginForm.form.valid && onSubmit()" novalidate>
+                        <div class="form-group">
+                             <label for="login-username"><i class="icon-user"></i> <b> Email</b></label>
+                            <input class="form-control"  name="email"  [(ngModel)]="creds.emailId" #email="ngModel" id="login-username"  type="email" placeholder="" 
+                            pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+                            required>
+                            <div
+                            *ngIf="email.invalid && ( email.touched || loginForm.submitted)"
+                            class="alert alert-danger"
+                          >
+                            <div *ngIf="email.errors!.required">
+                              Email is required. 
+                            </div>
+                            <div *ngIf="email.errors!.pattern">
+                              Please provide a valid EmailId
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                             <label for="login-password"><i class="icon-lock"></i> <b>Password</b></label>
+                            <input name="password" class="form-control" id="login-password" [(ngModel)]="creds.password" 
+                            type="password" #password="ngModel" placeholder="" required>
+                            <div
+                            *ngIf="password.invalid && (password.touched || loginForm.submitted)"
+                            class="alert alert-danger"
+                          >
+                            <div *ngIf="password.errors!.required">
+                              Password is required. 
+                            </div>
+                          </div>
+                          <div
+                          *ngIf="message && message.length>0"
+                          class="alert alert-danger"
+                        > {{message}} </div>
+                        </div>
+                        <div class="form-group">                            
+                            <button type="submit"  class="btn pull-right">Login</button>
+                            <div class="clearfix"></div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-sm-7 social-login">
+                
+                <div class="clearfix"></div>
+                <div class="not-member">
+                    <p>Not a member? <a routerLink="/register" [queryParams]="{role: 'Customer'}">Register here</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

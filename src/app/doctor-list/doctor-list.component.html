@@ -1,0 +1,97 @@
+<div class="section section-white">
+    <div class="container">
+        <div class="row top-buffer">
+            <div class="col-md-4">
+                <div class="input-append">
+                    <select class="form-control input-sm">
+                        <option value="1">Pune</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="input-append">
+                    <select [(ngModel)]="pinCode" class="form-control input-sm">
+                        <option value="411007">Aundh</option>
+                        <option value="411038">Kothrud</option>
+                        <option value="411008">Baner Road</option>
+                        <option value="411002">Bajirao Road</option>
+                        <option value="411018">Neharu Nagar</option>
+                        <option value="411001">Pune Cantt East</option>
+                        <option value="411005">Shivajinagar (Pune)</option>
+                        <option value="411014">Viman Nagar</option>
+                        <option value="411057">Wakad</option>
+                        <option value="	411020">Range Hills</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="input-append">
+                    <button class="btn" (click)="search()"  > Search </button>
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+        
+    </div>
+</div>
+
+<div class="section section-breadcrumbs">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Doctors :</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="doctorList.length>0">
+<div class="section"  *ngFor = "let Doctor of doctorList">
+    <div class="container" >
+        <div class="row service-wrapper-row">
+            <div class="col-sm-4">
+                <div class="service-image" >
+                    <img src="../../assets/Images/doctorlog.jpg" alt="Color Schemes">
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div >
+                    
+                    <h3>
+                        <a routerLink="/doctor-details/{{Doctor.DocId}}" [title]="Doctor.FirstName +' '+ Doctor.LastName">
+                            Dr.{{Doctor.FirstName}}
+                        
+                              {{Doctor.LastName}}
+                          </a >    
+                    </h3>
+
+                    <p [title]="Doctor.Experience">
+                     Total  {{Doctor.Experience}} Years Of Experience
+                    </p>
+
+                    <h6>
+
+                        <p [title]="Doctor.LandMark">
+                            {{Doctor.LandMark}} ,
+                        </p>
+                        <p [title]="Doctor.City">
+                            {{Doctor.City}}
+                        </p>
+                    </h6>
+                    <h6>
+                        <p [title]="Doctor.Fees">
+                            &#8377; {{Doctor.Fees}} Consultation Fees At Clinic
+                        </p>
+                    </h6>
+
+          
+
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+</div>
+
+

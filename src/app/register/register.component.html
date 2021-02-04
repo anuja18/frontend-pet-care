@@ -1,0 +1,139 @@
+<div class="section section-breadcrumbs">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Register</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section">
+    <div class="container justify-content-center">
+        <div class="row" >
+            <div class="col-sm-5">
+                <div class="basic-login">
+                    <form  #registerForm="ngForm" [appMatchPassword]="['password', 'confirmPassword']" role="form" (ngSubmit)="registerForm.form.valid && onSubmit()"   novalidate>
+                        <div class="form-group" >
+                             <label for="register-userfname"><i class="icon-user"></i> <b>First Name</b></label>
+                            <input name="name" [(ngModel)]="user.firstName"
+                            #firstName="ngModel"
+                            pattern="[a-zA-Z ]*"
+                             required minlength="4" class="form-control" 
+                             specialCharValidator="/^[A-Za-z]+$/" type="text" placeholder="">
+                            <div
+                            *ngIf="firstName.invalid && ( firstName.touched || registerForm.submitted )"
+                            class="alert alert-danger"
+                          >
+                            <div *ngIf="firstName.errors!.required">
+                              First name is required.
+                            </div>
+                            <div *ngIf="firstName.errors!.minlength">
+                                First name must be at least 4 characters long.
+                            </div>
+                            <div *ngIf="firstName.errors!.pattern">
+                                Special characters are not allowed in First name.
+                              </div>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="register-userlname"><i class="icon-user"></i> <b>Last Name</b></label>
+                           <input class="form-control" name="lastName" [(ngModel)]="user.lastName"  #lastName="ngModel" 
+                           pattern="[a-zA-Z ]*"
+                             required minlength="4"
+                           id="register-userlname" type="text" placeholder="">
+                           <div
+                            *ngIf="lastName.invalid && ( lastName.touched||registerForm.submitted)"
+                            class="alert alert-danger"
+                          >
+                            <div *ngIf="lastName.errors!.required">
+                              Last name is required.
+                            </div>
+                            <div *ngIf="lastName.errors!.minlength">
+                                Last name must be at least 4 characters long.
+                            </div>
+                            <div *ngIf="lastName.errors!.pattern">
+                                Special characters are not allowed in Last name.
+                              </div>
+                          </div>
+                       </div>
+                       <div class="form-group">
+                        <label for="register-userphone"><i class="icon-user"></i> <b>Phone</b></label>
+                       <input class="form-control" name="phoneNumber" [(ngModel)]="user.phone" #phoneNumber="ngModel" required 
+                       minlength="10" maxlength="10" pattern="^[0-9]*$"  id="register-userphone" type="tel" placeholder="">
+                       <div
+                            *ngIf="phoneNumber.invalid && ( phoneNumber.touched||registerForm.submitted)"
+                            class="alert alert-danger"
+                          >
+                            <div *ngIf="phoneNumber.errors!.required">
+                              Phone Number is required.
+                            </div>
+                            <div *ngIf="phoneNumber.errors!.minlength">
+                              Name must be at least 10 characters long.
+                            </div>
+                            <div *ngIf="phoneNumber.errors!.maxlength">
+                                Name must be at least 10 characters long.
+                              </div>
+                            <div *ngIf="phoneNumber.errors!.pattern">
+                                PhoneNumber should contain only numbers
+                              </div>
+                          </div>
+                   </div>
+
+                   <div class="form-group">
+                    <label for="register-useremail"><i class="icon-user"></i> <b>Email</b></label>
+                   <input class="form-control" name="email" [(ngModel)]="user.email_Id" required   
+                   #email="ngModel" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+                   id="register-useremail" type="email" placeholder="">
+                   <div
+                   *ngIf="email.invalid && ( email.touched || registerForm.submitted)"
+                   class="alert alert-danger"
+                 >
+                   <div *ngIf="email.errors!.required">
+                     Email is required. 
+                   </div>
+                   <div *ngIf="email.errors!.pattern">
+                     Please provide a valid EmailId
+                   </div>
+                 </div>
+               </div>
+                        <div class="form-group">
+                             <label for="register-password"><i class="icon-lock"></i> <b>Password</b></label>
+                            <input name="password" [(ngModel)]="user.password" #password="ngModel"
+                            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required
+                             class="form-control" id="register-password" type="password" placeholder="">
+                             <div *ngIf="password.invalid && ( password.touched || registerForm.submitted)" class="alert alert-danger">
+                                <div *ngIf="password.errors!.required"> Password is required. </div>
+                                <div *ngIf="password.errors!.pattern"> Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters.</div>
+                              </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirm-password"><i class="icon-lock"></i> <b>Confirm Password</b></label>
+                           <input name="confirmPassword" [(ngModel)]="user.confirmPassword" #confirmPassword="ngModel"
+                            required
+                            class="form-control" id="confirm-password" type="password" placeholder="">
+                            <div *ngIf="confirmPassword.invalid && ( confirmPassword.touched || registerForm.submitted)" class="alert alert-danger">
+                               <div *ngIf="confirmPassword.errors!.required"> Password is required. </div>
+                               <div *ngIf="confirmPassword.touched && confirmPassword.errors!.passwordMismatch">
+                                Password and Confirm password does not match. </div>
+                             </div>
+                       </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn pull-right">Register</button>
+                            <div class="clearfix"></div>
+                        </div>
+                        
+                    </form>
+                </div>
+            </div>
+            <div class="col-sm-7 social-login">
+                
+                <div class="clearfix"></div>
+                <div class="not-member">
+                    <p>Already a member? <a routerLink="/login">Login</a></p>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
